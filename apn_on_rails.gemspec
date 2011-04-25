@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{apn_on_rails}
-  s.version = "0.4.2"
+  s.version = "0.4.2rails3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["markbates", "Rebecca Nesson"]
-  s.date = %q{2011-01-04}
+  s.date = %q{2011-04-18}
   s.description = %q{APN on Rails is a Ruby on Rails gem that allows you to
 easily add Apple Push Notification (iPhone) support to your Rails application.
 }
@@ -31,19 +31,19 @@ easily add Apple Push Notification (iPhone) support to your Rails application.
     "VERSION",
     "apn_on_rails.gemspec",
     "autotest/discover.rb",
-    "generators/apn_migrations_generator.rb",
-    "generators/templates/apn_migrations/001_create_apn_devices.rb",
-    "generators/templates/apn_migrations/002_create_apn_notifications.rb",
-    "generators/templates/apn_migrations/003_alter_apn_devices.rb",
-    "generators/templates/apn_migrations/004_create_apn_apps.rb",
-    "generators/templates/apn_migrations/005_create_groups.rb",
-    "generators/templates/apn_migrations/006_alter_apn_groups.rb",
-    "generators/templates/apn_migrations/007_create_device_groups.rb",
-    "generators/templates/apn_migrations/008_create_apn_group_notifications.rb",
-    "generators/templates/apn_migrations/009_create_pull_notifications.rb",
-    "generators/templates/apn_migrations/010_alter_apn_notifications.rb",
-    "generators/templates/apn_migrations/011_make_device_token_index_nonunique.rb",
-    "generators/templates/apn_migrations/012_add_launch_notification_to_apn_pull_notifications.rb",
+    "lib/generators/apn_on_rails/apn_migrations_generator.rb",
+    "lib/generators/apn_on_rails/templates/001_create_apn_devices.rb",
+    "lib/generators/apn_on_rails/templates/002_create_apn_notifications.rb",
+    "lib/generators/apn_on_rails/templates/003_alter_apn_devices.rb",
+    "lib/generators/apn_on_rails/templates/004_create_apn_apps.rb",
+    "lib/generators/apn_on_rails/templates/005_create_groups.rb",
+    "lib/generators/apn_on_rails/templates/006_alter_apn_groups.rb",
+    "lib/generators/apn_on_rails/templates/007_create_device_groups.rb",
+    "lib/generators/apn_on_rails/templates/008_create_apn_group_notifications.rb",
+    "lib/generators/apn_on_rails/templates/009_create_pull_notifications.rb",
+    "lib/generators/apn_on_rails/templates/010_alter_apn_notifications.rb",
+    "lib/generators/apn_on_rails/templates/011_make_device_token_index_nonunique.rb",
+    "lib/generators/apn_on_rails/templates/012_add_launch_notification_to_apn_pull_notifications.rb",
     "lib/apn_on_rails.rb",
     "lib/apn_on_rails/apn_on_rails.rb",
     "lib/apn_on_rails/app/models/apn/app.rb",
