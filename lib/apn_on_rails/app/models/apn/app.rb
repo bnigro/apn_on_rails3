@@ -44,18 +44,25 @@ class APN::App < APN::Base
       else 
         conditions = ["app_id = ?", app_id]
       end
+      puts "send_notifications_for_cert - Ponto 0"
       begin
         APN::Connection.open_for_delivery({:cert => the_cert}) do |conn, sock|
+          puts "send_notifications_for_cert - Ponto 1"
           APN::Device.find_each(:conditions => conditions) do |dev|
+            puts "send_notifications_for_cert - Ponto 2"
             dev.unsent_notifications.each do |noty|
+              puts "send_notifications_for_cert - Ponto 3"
               conn.write(noty.message_for_sending)
+              puts "send_notifications_for_cert - Ponto 4"
               noty.sent_at = Time.now
+              puts "send_notifications_for_cert - Ponto 5"
               noty.save
+              puts "send_notifications_for_cert - Ponto 6"
             end
           end
         end
       rescue Exception => e
-        log_connection_exception(e)
+        puts e.message
       end
     # end   
   end
@@ -143,9 +150,9 @@ class APN::App < APN::Base
   end
   
   
-  protected
-  def log_connection_exception(ex)
-    puts ex.message
-  end
+  # protected
+  # def log_connection_exception(ex)
+  #   puts ex.message
+  # end
     
 end
