@@ -11,9 +11,9 @@ module ApnOnRails
     end
 
     rails_env = 'development'
-    # if defined?(RAILS_ENV)
-    #       rails_env = RAILS_ENV
-    #     end
+    if defined?(RAILS_ENV)
+          rails_env = RAILS_ENV
+        end
 
     configatron.apn.set_default(:passphrase, '')
     configatron.apn.set_default(:port, 2195)
