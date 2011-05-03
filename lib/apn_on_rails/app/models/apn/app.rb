@@ -32,7 +32,7 @@ class APN::App < APN::Base
     puts "self.send_notifications - Entrada"
     apps = APN::App.all 
     apps.each do |app|
-      puts "Analisando notificacões da aplicação de id = " + app.id
+      puts "Analisando notificacões da aplicação de id = " + app.id.to_s
       app.send_notifications
     end
     if !configatron.apn.cert.blank?
