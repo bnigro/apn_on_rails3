@@ -53,6 +53,8 @@ module APN
         puts "conexao - ponto 0"
         ctx = OpenSSL::SSL::SSLContext.new
         puts "conexao - ponto 1"
+        puts cert
+        puts "passphrase: #{options[:passphrase]}"
         ctx.key = OpenSSL::PKey::RSA.new(cert, options[:passphrase])
         puts "conexao - ponto 2"
         ctx.cert = OpenSSL::X509::Certificate.new(cert)
