@@ -19,25 +19,32 @@ class APN::App < APN::Base
   # so as to not be sent again.
   # 
   def send_notifications
+    puts "send_notifications - Entrada"
     if self.cert.nil?
       raise APN::Errors::MissingCertificateError.new
       return
     end
     APN::App.send_notifications_for_cert(self.cert, self.id)
+    puts "send_notifications - Saída"
   end
   
   def self.send_notifications
+    puts "self.send_notifications - Entrada"
     apps = APN::App.all 
     apps.each do |app|
+      puts "Analisando notificacões da aplicação de id = " + app.app_id
       app.send_notifications
     end
     if !configatron.apn.cert.blank?
+      puts "Não deveria ter entrado aqui - não carregou o certificado"
       global_cert = File.read(configatron.apn.cert)
       send_notifications_for_cert(global_cert, nil)
     end
+    puts "self.send_notifications - Saída"
   end
   
   def self.send_notifications_for_cert(the_cert, app_id)
+    puts "send_notifications_for_cert - Entrada"
     # unless self.unsent_notifications.nil? || self.unsent_notifications.empty?
       if (app_id == nil)
         conditions = "app_id is null"
@@ -64,6 +71,7 @@ class APN::App < APN::Base
       rescue Exception => e
         puts e.message
       end
+      puts "send_notifications_for_cert - Saída"
     # end   
   end
   
