@@ -25,7 +25,7 @@ class APN::App < APN::Base
       return
     end
     APN::App.send_notifications_for_cert(self.cert, self.id)
-    puts "send_notifications - Saída"
+    puts "send_notifications - Saida"
   end
   
   def self.send_notifications
@@ -40,7 +40,7 @@ class APN::App < APN::Base
       global_cert = File.read(configatron.apn.cert)
       send_notifications_for_cert(global_cert, nil)
     end
-    puts "self.send_notifications - Saída"
+    puts "self.send_notifications - Saida"
   end
   
   def self.send_notifications_for_cert(the_cert, app_id)
@@ -71,7 +71,7 @@ class APN::App < APN::Base
       rescue Exception => e
         puts e.message
       end
-      puts "send_notifications_for_cert - Saída"
+      puts "send_notifications_for_cert - Saida"
     # end   
   end
   
