@@ -36,7 +36,7 @@ class APN::App < APN::Base
       app.send_notifications
     end
     if !configatron.apn.cert.blank?
-      puts "Nao deveria ter entrado aqui - não carregou o certificado"
+      puts "Nao deveria ter entrado aqui - nao carregou o certificado"
       global_cert = File.read(configatron.apn.cert)
       send_notifications_for_cert(global_cert, nil)
     end
