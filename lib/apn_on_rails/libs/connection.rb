@@ -50,29 +50,20 @@ module APN
         puts "host: #{options[:host]}"
         #cert = File.read(options[:cert])
         cert = options[:cert]
-        puts "conexao - ponto 0"
         ctx = OpenSSL::SSL::SSLContext.new
-        puts "conexao - ponto 1"
         puts cert
         puts "passphrase: #{options[:passphrase]}"
         ctx.key = OpenSSL::PKey::RSA.new(cert, options[:passphrase])
         puts ctx.key
-        puts "conexao - ponto 2"
         ctx.cert = OpenSSL::X509::Certificate.new(cert)
-        puts "conexao - ponto 3"
   
         sock = TCPSocket.new(options[:host], options[:port])
-        puts "conexao - ponto 4"
         ssl = OpenSSL::SSL::SSLSocket.new(sock, ctx)
-        puts "conexao - ponto 5"
         ssl.sync = true
         ssl.connect
-        puts "conexao - ponto 6"
         yield ssl, sock if block_given?
-        puts "conexao - ponto 7"
         ssl.close
         sock.close
-        puts "conexao - ponto 8"
       end
       
     end
