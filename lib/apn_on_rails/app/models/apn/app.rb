@@ -32,11 +32,11 @@ class APN::App < APN::Base
     puts "self.send_notifications - Entrada"
     apps = APN::App.all 
     apps.each do |app|
-      puts "Analisando notificacoes da aplicação de id = " + app.id.to_s
+      puts "Analisando notificacoes da aplicacao de id = " + app.id.to_s
       app.send_notifications
     end
     if !configatron.apn.cert.blank?
-      puts "Não deveria ter entrado aqui - não carregou o certificado"
+      puts "Nao deveria ter entrado aqui - não carregou o certificado"
       global_cert = File.read(configatron.apn.cert)
       send_notifications_for_cert(global_cert, nil)
     end
