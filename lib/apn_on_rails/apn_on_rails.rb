@@ -11,9 +11,9 @@ module ApnOnRails
     end
 
     rails_env = 'development'
-    # if defined?(RAILS_ENV)
-    #           rails_env = RAILS_ENV
-    #         end
+    if defined?(RAILS_ENV)
+              rails_env = RAILS_ENV
+            end
 
     configatron.apn.set_default(:passphrase, '')
     configatron.apn.set_default(:port, 2195)
@@ -26,7 +26,7 @@ module ApnOnRails
       #configatron.apn.set_default(:cert, File.join(rails_root, 'config', 'apple_push_notification_production.pem'))
 
       configatron.apn.feedback.set_default(:host, 'feedback.push.apple.com')
-      configatron.apn.feedback.set_default(:cert, configatron.apn.cert)
+      #configatron.apn.feedback.set_default(:cert, configatron.apn.cert)
     else
       configatron.apn.set_default(:host, 'gateway.sandbox.push.apple.com')
       #configatron.apn.set_default(:cert, File.join(rails_root, 'config', 'apple_push_notification_development.pem'))
